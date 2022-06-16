@@ -1,0 +1,30 @@
+mixin nav-links( ulClass,links) 
+    ul(class = ulClass)
+        - for ( i = 0 ; i<links.length ; i++)
+            if i  == 0
+                li.nav-item
+                    a.nav-link(class= 'active' , href = "#" + links[i]) #{links[i]}
+            else if i > 0
+                li.nav-item
+                    a.nav-link( href = "#" + links[i]) #{links[i]}
+    //- create    social media 
+    - let icons = ['bx bxl-facebook' , 'bx bxl-twitter']
+    - let socialLinks = ["https://facebook.com" , 'https://twitter.com']
+    - let classes = ['fb' , 'tw']
+mixin social(socialClass,icons , links = "" ,classes= "")
+    div(class = socialClass)
+        - for ( i = 0 ; i<icons.length ; i++)
+            a(href=links[i] , class = classes[i])
+                i( class = icons[i])
+
+//-  end  nav-links 
+mixin colors(ulClass ,array)
+    ul(class = ulClass)
+        - for ( i = 0 ; i<array.length ; i++)
+            if i  == 0
+                li(class= 'active' , data-color = array[i] , style = {'background-color' : array[i] })
+            else if i > 0
+                li(data-color = array[i] , style = {'background-color' : array[i] ,}) 
+//-  
+
+

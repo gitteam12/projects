@@ -1,0 +1,48 @@
+@use '../utilities/mixins' as *;
+@use '../utilities/vars' as *;
+
+/*            start of the container            */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+/* Small */
+@media (min-width: 576px) {
+    .container {
+        width: 540px;
+    }
+}
+
+/* Medium */
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+/* Large */
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
+    }
+}
+
+/* XLarge */
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+
+/* XXLarge */
+@media (min-width: 1400px) {
+    .container {
+        width: 1320px;
+    }
+}
+
+/*            end of the container            */

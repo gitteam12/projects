@@ -1,0 +1,9 @@
+div.container {
+  background-color: blue;
+}
+div.container nav.nav {
+  color: red;
+}
+div.container nav.nav div.container {
+  display: flex;
+}

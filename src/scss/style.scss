@@ -1,0 +1,12 @@
+@use './utilities/vars' as *;
+//  importing components 
+@use './components/reset';
+@use './components/container';
+@use './components/buttons';
+@use './components/scroll';
+@use './components/typo';
+//  importing sections 
+@use './layout/general';
+@use './layout/nav';
+@use './layout/landing';
+@use './layout/about';

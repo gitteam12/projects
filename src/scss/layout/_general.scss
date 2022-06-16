@@ -1,0 +1,54 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/vars" as *;
+
+/*        start  the main element styling       */
+html {
+  font-size: 10px;
+}
+
+*>* {
+  color: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  font-family: var(--body-font-open-sans);
+  font-weight: var(--fw-normal);
+  color: var(--body-text-color);
+  font-size: var(--fz-normal);
+  transition: opacity 0.2s ease-in;
+  line-height: 1.5;
+}
+
+a {
+  text-transform: capitalize;
+}
+
+/*           end main elements styling          */
+// ?  
+
+.container { 
+  max-width: 350px;
+  margin-block-start: 100px;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding-block: 20px;
+  .text { 
+    margin-bottom: 10px;
+    h1 { 
+      font-size: 17px;
+    }
+  }
+  form { 
+    @include flex-column;
+    gap: 20px;
+    width: 100%;
+    .btn { 
+      background-color: #008cff;
+      color: white;
+    }
+  }
+}

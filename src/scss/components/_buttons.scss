@@ -1,0 +1,50 @@
+@use '../utilities/mixins' as *;
+@use '../utilities/vars' as *;
+
+/*            start  of the  buttons            */
+.btn {
+    transition: all 0.15s ease-in;
+    border: 1px solid transparent;
+    text-transform: capitalize;
+    vertical-align: middle;
+    display: inline-block;
+    padding: .5rem .8rem;
+    border-radius: .2rem;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ripple-btn {
+    overflow: hidden;
+    position: relative;
+}
+
+.ripple-span {
+    animation: ripple .7s ease-in-out forwards;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    pointer-events: none; // fix 
+    border-radius: 50%;
+    position: absolute;
+}
+
+@keyframes ripple {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    to {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+    }
+}
+//-----------------
+
+/*            end  of the  buttons            */
