@@ -1,37 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500;600;700&display=swap");
-/* -------------------------------------------- */
-/*=============== VARIABLES CSS ===============*/
 :root {
   /* ============= start main stuff ============= */
-  --body-font-open-sans: "Open Sans", sans-serif;
-  --body-font-roboto-mono: "Roboto Mono", monospace;
-  --transition: all .4s ease-in-out;
-  --transition-fast: all .1s ease-in-out;
-  --body-bg-color: ;
-  --body-text-color: ;
-  --section-padding: 4rem;
-  --main-padding: 1rem;
-  --nav-height: 7rem;
-  --radius: 4px;
   /* ============== end main stuff ============== */
   /* ============= start  font size ============= */
   --fz-normal: 12px;
   --fz-small: 11px;
   --fz-smaller: 10px;
+  --text-normal-fw: 400 ;
+  --text-heading-fw: 500 ;
   /* ============= start  font size ============= */
-  /* ===== start  margins and padding stuff ===== */
-  --m-05: 5px;
-  --m-10: 10px;
-  --m-15: 15px;
-  --m-20: 20px;
-  --m-25: 25px;
-  --m-30: 30px;
-  --m-35: 35px;
-  --m-40: 40px;
-  --m-45: 45px;
-  --m-50: 50px;
-  /* ===== end  margins and padding stuff ===== */
 }
 @media only screen and (min-width: 992px) {
   :root {
@@ -115,30 +93,20 @@ hr {
   width: 100%;
 }
 
+input,
 select {
-  padding: 5px;
-  outline: none;
   border-radius: 4px;
+  max-width: 100%;
   border-color: #ddd;
   border: 1px solid;
-  max-width: 100%;
+  padding: 5px;
+  outline: none;
 }
+input:focus,
 select:focus {
-  box-shadow: 0 0 0 2px rgba(11, 105, 245, 0.3019607843);
+  box-shadow: 0 0 0 3px rgba(11, 105, 245, 0.3019607843);
 }
 
-input {
-  display: inline-block;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  max-width: 100%;
-  color: inherit;
-  outline: none;
-  padding: 5px;
-}
-input:focus {
-  box-shadow: 0 0 0 2px rgba(11, 105, 245, 0.3019607843);
-}
 input[type=checkbox], input[type=radio], input[type=file] {
   box-sizing: border-box;
   vertical-align: middle;
@@ -323,10 +291,6 @@ html {
 }
 
 body {
-  background-color: var(--body-bg-color);
-  font-family: var(--body-font-open-sans);
-  font-weight: var(--fw-normal);
-  color: var(--body-text-color);
   font-size: var(--fz-normal);
   transition: opacity 0.2s ease-in;
   line-height: 1.5;
@@ -337,122 +301,20 @@ a {
 }
 
 /*           end main elements styling          */
-.wrapper {
-  background: #fff;
-  max-width: 400px;
-  width: 100%;
-  margin: 120px auto 0;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-}
-.wrapper header {
-  font-size: 30px;
-  font-weight: 600;
-}
-.wrapper .inputField {
-  margin: 20px 0;
-  width: 100%;
+.box {
+  padding-left: 10px;
+  padding-right: 29px;
   display: flex;
-  height: 45px;
-}
-.wrapper .inputField input {
-  width: 85%;
-  height: 100%;
-  outline: none;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  font-size: 17px;
-  padding-left: 15px;
-  transition: all 0.3s ease;
-}
-.wrapper .inputField input:focus {
-  border-color: #8e49e8;
-}
-.wrapper .inputField button {
-  width: 50px;
-  height: 100%;
-  border: none;
-  color: #fff;
-  margin-left: 5px;
-  font-size: 21px;
-  outline: none;
-  background: #8e49e8;
-  cursor: pointer;
-  border-radius: 3px;
-  opacity: 0.6;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-.wrapper .inputField button.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.wrapper .inputField button:hover,
-.wrapper .footer button:hover {
-  background: #721ce3;
-}
-.wrapper .todoList {
-  max-height: 250px;
-  overflow-y: auto;
-}
-.wrapper .todoList .todo {
-  position: relative;
-  list-style: none;
-  margin-bottom: 8px;
-  background: #f2f2f2;
-  border-radius: 3px;
-  padding: 10px 15px;
-  cursor: default;
-  overflow: hidden;
-  word-wrap: break-word;
-}
-.wrapper .todoList .todo:hover .icon {
-  right: 0;
-}
-.wrapper .todoList .todo .icon {
-  position: absolute;
-  right: -45px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #e74c3c;
-  width: 45px;
-  text-align: center;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 0 3px 3px 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.wrapper .footer {
-  display: flex;
-  width: 100%;
-  margin-top: 20px;
-  align-items: center;
   justify-content: space-between;
+  align-items: start;
+  left: 10px;
+  right: 0;
+  top: 15px;
+  bottom: 0;
 }
-.wrapper .footer button {
-  padding: 6px 10px;
-  border-radius: 3px;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-weight: 400;
-  font-size: 16px;
-  margin-left: 5px;
-  background: #8e49e8;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  opacity: 0.6;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-.wrapper .footer button.active {
-  opacity: 1;
-  pointer-events: auto;
+
+p {
+  color: red;
 }
 
 /*            start  landing page   section            */

@@ -1,0 +1,35 @@
+@mixin fd($ai : flex-start, $js : flex-start, $fd : row) {
+    display: flex;
+    align-items: if($ai =="i", null, $ai);
+    justify-content: if($jc =="i", null, $jc);
+    flex-direction: if($fd =="i", null, $fd);
+}
+
+@mixin flex-center($ai : center, $jc: center) {
+    display: flex;
+    align-items: if($ai =="i", null, $ai);
+    justify-content: if($jc =="i", null, $jc);
+}
+
+
+@mixin flex($ai, $jc, $fd , $fw , $gap ) {
+    display: flex;
+    align-items: if($ai =="", null, $ai);
+    justify-content: if($jc =="", null, $jc);
+    flex-direction: if($fd =="", null, $fd);
+    flex-wrap: if($fw =="", null, $fw);
+    gap: if($gap =="", null, $gap);
+}
+
+@mixin grid($min: 300px, $max: 1fr, $gap : 20px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min , $max));
+    gap: $gap;
+
+}
+
+@mixin flex-between($ai: center) {
+    display: flex;
+    justify-content: space-between;
+    align-items: if($ai =="i", null, $ai);
+}
