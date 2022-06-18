@@ -11,9 +11,7 @@ const Api = "https://api.github.com/users/ElzeroWebSchool/repos";
         String
         object   (x === key)
 */
-
 // Search =>  Cross Origin Api | Api authentication
-
 /*
     XMLHTTPREQUEST
         request.readyState (0,1,2,3,4)
@@ -33,37 +31,98 @@ const Api = "https://api.github.com/users/ElzeroWebSchool/repos";
         request.responseUrl
             get the used url in open( , url ,)   method
         ---------------
-        request.response
+        request.onprogress = () => {} 
+            on processing the request  readyState === 3 
         
 */
-
 /*
     await           wait for and Get Promise result
-
 */
 
-let download = document.querySelector('.download');
-let input = document.querySelector('.url');
+// getting all required elements
+// function ( showTasks()  /  deleteTask() )
+
+const inputBox = document.querySelector(".inputField input");
+const addBtn = document.querySelector(".inputField button");
+const todoList = document.querySelector(".todoList");
+const deleteAllBtn = document.querySelector(".footer button");
+
+// onkeyup event
+let arrayList = localStorage.getItem('todos') ?
+    JSON.parse(localStorage.getItem('todos')) :
+    [];
+
+inputBox.oninput = function () {
+    if (this.value.trim() !== "") {
+        addBtn.classList.add("active");
+    } else {
+        addBtn.classList.remove("active");
+    }
+};
+
+inputBox.addEventListener('focus', function () { 
+    document.onkeyup = function (event) { 
+        if (event.key === "Enter" && inputBox.value.trim() !== "" ) { 
+            addBtn.click();
+    }
+    }
+})
+addBtn.addEventListener('click', function (event) {
+    let inputValue = inputBox.value;
+    if (inputValue.trim() !== "") {
+        addToArray(inputValue);
+        showTodos()
+    }
+})
+
+function addToArray(text) {
+    let todo = {
+        title: text,
+        time: Date.parse(new Date())
+    }
+    arrayList.push(todo)
+    localStorage.setItem("todos", JSON.stringify(arrayList))
+}
+function showTodos() {
+    let todoElements = "";
+    arrayList.forEach((el, index) => {
+        todoElements += `
+        <div class ="todo">
+        <span class = "todo-title" >${el.title} </span>
+        <button onclick =" deleteTodo(${index})" class = "icon"><i class="fas fa-trash"></i></button>
+        </div>
+        ` ;
+    })
+    if (arrayList.length > 0) {
+        deleteAllBtn.classList.add('active')
+    }
+    else {
+        deleteAllBtn.classList.remove('active')
+    
+    }
+    todoList.innerHTML = todoElements;
+    let count = document.querySelector('.pendingTasks');
+    count.innerHTML = arrayList.length;
+
+}
+showTodos();
 
 
-async function downloafFunction(link) {
-    let fetchedData = await fetch(link);
-    let fileInfo = await fetchedData.blob()
-    let tempUrl = URL.createObjectURL(fileInfo);
-
-    let downloadBtn = document.createElement('a')
-    downloadBtn.setAttribute('href', tempUrl)
-    downloadBtn.setAttribute('download', "filename");
-    document.body.append(downloadBtn)
-    downloadBtn.click();
-    downloadBtn.remove();
-
-    console.log(tempUrl)
+function deleteTodo(index) {
+    arrayList.splice(index, 1);
+    localStorage.setItem('todos', JSON.stringify(arrayList))
+    showTodos()
 }
 
+deleteAllBtn.addEventListener('click', function () {
 
-download.addEventListener('click', (e) => {
-    e.preventDefault();
-    let url = input.value;
-    downloafFunction(url)
+    if (arrayList.length !== null) {
+        this.classList.add('active')
+        arrayList = []
+        localStorage.setItem('todos', JSON.stringify(arrayList))
+    } else {
+
+        this.classList.remove('active')
+    }
+    showTodos();
 })

@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="dist/css/all.min.css" /> -->
-    <link rel="stylesheet" href="dist/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-    />
-    <title>Homepage</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0" />
+  <link rel="stylesheet" href="dist/css/all.min.css" />
+  <link rel="stylesheet" href="dist/css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+  <title>Homepage</title>
+</head>
+<!-- 
+    file accept with input type = file ;
+      accept = "image/* ,.pdf ,  video/mp3 ,audio/*"
+      accept = ".pdf , .png ,.jpeg , audio/*"
+  -->
+<body>
 
-    <div class="container">
-      <div class="text">
-        <h1>javascript File Downloader</h1>
-        <p>
-          Paste url of image,video or pdf to download
-        </p>
-      </div>
-        <form class="form">
-          <input type="text" class="url" placeholder="Pase File Url" required name = "url">
-          <button type ="submit" class="btn download">Download</button>
-        </form>
+
+
+  <div class="wrapper">
+    <header>Todo App</header>
+    <div class="inputField">
+      <input type="text" placeholder="Add your new todo">
+      <button><i class="fas fa-plus"></i></button>
     </div>
-  </body>
-  <script src="dist/js/app.js"></script>
+    <ul class="todoList"></ul>
+    <div class="footer">
+      <span>You have <span class="pendingTasks">0</span> pending tasks</span>
+      <button>Clear All</button>
+    </div>
+  </div>
+
+
+
+
+</body>
+<script src="dist/js/app.js"></script>
 </html>

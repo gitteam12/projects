@@ -1,39 +1,6 @@
 @import './breakpoint';
+
 // Media queries
-$grid-breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl:1400px
-);
-
-@mixin media( $size,$type : min) {
-    @if map-has-key($grid-breakpoints, $size ) {
-
-        $width : map-get($grid-breakpoints, $size);
-
-        @if $type ==max {
-            $width : $width - 1;
-        }
-
-        @media only screen and (#{$type}-width : $width) {
-            @content ;
-        }
-
-    }
-}
-
-@mixin media-between($lower, $upper) {
-    @if map-has-key($grid-breakpoints, $lower ) and map-has-key($grid-breakpoints, $upper ) {
-        $lower-breakpoint: map-get($grid-breakpoints, $lower);
-        $upper-breakpoint: map-get($grid-breakpoints, $upper);
-
-        @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
-            @content;
-        }
-    }
-}
 //  pseudo element
 @mixin pseudo($content: '', $pos: absolute, $display: block) {
     content: $content;
@@ -41,9 +8,20 @@ $grid-breakpoints: (
     position: $pos;
 }
 
-@function   border($color) { 
-    @return  1px solid $color ;
+@mixin top-left($top : initial, $left : initial) {
+    top: $top ;
+    left: $left ;
 }
+
+@mixin bottom-right($bottom : initial, $right : initial) {
+    right: $right ;
+    bottom: $bottom ;
+}
+
+@function border($color) {
+    @return 1px solid $color ;
+}
+
 @mixin vertical-center($po: absolute) {
     -ms-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
@@ -291,7 +269,7 @@ $grid-breakpoints: (
     white-space: nowrap;
 }
 
-@mixin overlay($color:black , $opacity:.5) {
+@mixin overlay($color: black, $opacity: .5) {
     height: 100%;
     width: 100%;
     top: 0;
@@ -352,20 +330,22 @@ $grid-breakpoints: (
     margin-left: auto;
     margin-right: auto;
 }
-@mixin flex($ai:flex-start ,$jc:flex-start ,$fd:row) {
+
+@mixin flex($ai: flex-start, $jc: flex-start, $fd: row) {
     display: flex;
     align-items: $ai;
     justify-content: $jc;
     flex-direction: $fd;
 }
-@mixin grid($min:300px , $max:1fr , $gap : 20px) {
+
+@mixin grid($min: 300px, $max: 1fr, $gap : 20px) {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax($min ,$max));
+    grid-template-columns: repeat(auto-fit, minmax($min , $max));
     gap: $gap;
 
 }
 
-@mixin  flex-between {
+@mixin flex-between {
     display: flex;
     justify-content: space-between;
     align-items: center;

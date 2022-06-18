@@ -124,7 +124,7 @@ select {
   max-width: 100%;
 }
 select:focus {
-  box-shadow: 0 0 0 3px rgba(68, 54, 224, 0.3019607843);
+  box-shadow: 0 0 0 2px rgba(11, 105, 245, 0.3019607843);
 }
 
 input {
@@ -137,7 +137,7 @@ input {
   padding: 5px;
 }
 input:focus {
-  box-shadow: 0 0 0 3px rgba(68, 54, 224, 0.3019607843);
+  box-shadow: 0 0 0 2px rgba(11, 105, 245, 0.3019607843);
 }
 input[type=checkbox], input[type=radio], input[type=file] {
   box-sizing: border-box;
@@ -337,30 +337,122 @@ a {
 }
 
 /*           end main elements styling          */
-.container {
-  max-width: 350px;
-  -webkit-margin-before: 100px;
-          margin-block-start: 100px;
-  background-color: white;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding-block: 20px;
-}
-.container .text {
-  margin-bottom: 10px;
-}
-.container .text h1 {
-  font-size: 17px;
-}
-.container form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.wrapper {
+  background: #fff;
+  max-width: 400px;
   width: 100%;
+  margin: 120px auto 0;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
-.container form .btn {
-  background-color: #008cff;
-  color: white;
+.wrapper header {
+  font-size: 30px;
+  font-weight: 600;
+}
+.wrapper .inputField {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  height: 45px;
+}
+.wrapper .inputField input {
+  width: 85%;
+  height: 100%;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 17px;
+  padding-left: 15px;
+  transition: all 0.3s ease;
+}
+.wrapper .inputField input:focus {
+  border-color: #8e49e8;
+}
+.wrapper .inputField button {
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 21px;
+  outline: none;
+  background: #8e49e8;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.wrapper .inputField button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.wrapper .inputField button:hover,
+.wrapper .footer button:hover {
+  background: #721ce3;
+}
+.wrapper .todoList {
+  max-height: 250px;
+  overflow-y: auto;
+}
+.wrapper .todoList .todo {
+  position: relative;
+  list-style: none;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: default;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.wrapper .todoList .todo:hover .icon {
+  right: 0;
+}
+.wrapper .todoList .todo .icon {
+  position: absolute;
+  right: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e74c3c;
+  width: 45px;
+  text-align: center;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.wrapper .footer {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .footer button {
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5px;
+  background: #8e49e8;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.wrapper .footer button.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /*            start  landing page   section            */
