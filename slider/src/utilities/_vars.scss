@@ -15,16 +15,21 @@
     --fz-small: 11px;
     --fz-smaller: 10px;
 
-    @include media(lg) {
+    @include media(md) {
         --fz-normal: 13px;
         --fz-small: 12px;
         --fz-smaller: 11px;
     }
 
-    @include media(xxl) {
+    @include media(lg) {
         --fz-normal: 14px;
         --fz-small: 13px;
         --fz-smaller: 12px;
+    }
+    @include media(xl) {
+        --fz-normal: 15px;
+        --fz-small: 14px;
+        --fz-smaller: 13px;
     }
     
     --text-normal-fw: 400 ;

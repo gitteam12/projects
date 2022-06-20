@@ -11,18 +11,25 @@
   --text-heading-fw: 500 ;
   /* ============= start  font size ============= */
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
   :root {
     --fz-normal: 13px;
     --fz-small: 12px;
     --fz-smaller: 11px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 992px) {
   :root {
     --fz-normal: 14px;
     --fz-small: 13px;
     --fz-smaller: 12px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  :root {
+    --fz-normal: 15px;
+    --fz-small: 14px;
+    --fz-smaller: 13px;
   }
 }
 
@@ -215,20 +222,6 @@ input[type=checkbox], input[type=radio], input[type=file] {
   }
 }
 /*            end  of the  buttons            */
-::-webkit-scrollbar {
-  width: 8px !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--main-color);
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #ccc;
-  border-radius: 20px;
-}
-
 /*           start  of the typography           */
 h1,
 h2,
@@ -301,20 +294,80 @@ a {
 }
 
 /*           end main elements styling          */
-.box {
-  padding-left: 10px;
-  padding-right: 29px;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  left: 10px;
-  right: 0;
-  top: 15px;
-  bottom: 0;
+.carousel {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+  width: 100%;
 }
-
-p {
-  color: red;
+.carousel .container {
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.carousel .controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.carousel .controls .next.hide, .carousel .controls .previous.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s;
+}
+.carousel .slider {
+  transition: 0.5s ease-in-out;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  --padding: 10px;
+}
+.carousel .slider.active .slide:not(:first-of-type), .carousel .slider.active .slide:not(:last-child) {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+.carousel .slider.active .slide:last-of-type {
+  padding-right: 0 !important;
+}
+.carousel .slider.active .slide:first-child {
+  padding-right: var(--padding);
+  padding-left: 0 !important;
+}
+.carousel .slider .slide {
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  flex: none;
+  width: 100%;
+}
+.carousel .slider .slide-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  height: 200px;
+}
+.carousel .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.carousel .pagination-item {
+  transition: 0.4s ease-in-out;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  gap: 10px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+.carousel .pagination-item.active {
+  background-color: #333;
 }
 
 /*            start  landing page   section            */

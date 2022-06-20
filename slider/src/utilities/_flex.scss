@@ -1,13 +1,13 @@
-@mixin fd($ai : flex-start, $js : flex-start, $fd : row) {
+@mixin fd($ai : flex-start, $jc : flex-start, $fd : row) {
     display: flex;
     align-items: if($ai =="i", null, $ai);
     justify-content: if($jc =="i", null, $jc);
     flex-direction: if($fd =="i", null, $fd);
 }
 
-@mixin flex-center($ai : center, $jc: center) {
+@mixin flex-center( $jc: center) {
     display: flex;
-    align-items: if($ai =="i", null, $ai);
+    align-items: center;
     justify-content: if($jc =="i", null, $jc);
 }
 
