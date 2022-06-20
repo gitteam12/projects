@@ -52,13 +52,19 @@ let slider = carousel.querySelector('.slider');
 let nextBtn = carousel.querySelector(' .next');
 let previousBtn = carousel.querySelector(' .previous');
 let pagination = carousel.querySelector('.pagination');
-let paginationCount = slides.length;
+let preview = 2;
+let width = 100 / preview; 
+let paginationCount = slides.length - preview  +  1; 
 let slideMover = slides[0]
 let count = 0;
+if (preview > 1) {
 
+    slides.forEach(e => e.style.width = width + "%");
+    slider.classList.add('active')
+}
 // Adding pagination items to page  ; 
 
-for (let i = 0; i < paginationCount; i++) {
+for (let i = 1; i <= paginationCount; i++) {
     let li = document.createElement('li');
     li.classList.add('pagination-item');
     pagination.append(li);
@@ -87,11 +93,11 @@ previousBtn.onclick = () => moveSlide("previous");
 //  create the mover function ;
 function Mover(index) {
     // moving the slide Mover 
-    slideMover.style.marginLeft = `${-100 * index}%`;
+    slideMover.style.marginLeft = `${-width * index}%`;
     function checkBullets() { 
         let opened = pagination.querySelector('.pagination-item.active');
         let el = paginationItems[index];
-        if (opened !== el) {
+        if (el && opened && opened !== el) {
             opened.classList.remove('active');
             el.classList.add('active')
         }
@@ -101,7 +107,7 @@ function Mover(index) {
 }
 function moveSlide(dir) {
     if (dir === "next") {
-        if (count >= slides.length - 1) return;
+        if (count >= slides.length - preview) return;
         else {
             count++;
             Mover(count);

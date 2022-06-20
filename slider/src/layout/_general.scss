@@ -61,21 +61,14 @@ a {
 
     &.active {
       .slide {
-
-        &:not(:first-of-type),
-        &:not(:last-child) {
-          @include px(var(--padding))
-        }
-
-        &:last-of-type {
-          padding-right: 0 !important;
-        }
+         
+          padding-left: var(--padding);
+          padding-right : var(--padding) ;
 
         &:first-child {
-          padding-right: var(--padding);
+          // padding-right: var(--padding);
           padding-left: 0 !important;
         }
-
       }
     }
 

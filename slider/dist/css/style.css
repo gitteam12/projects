@@ -328,15 +328,11 @@ a {
   display: flex;
   --padding: 10px;
 }
-.carousel .slider.active .slide:not(:first-of-type), .carousel .slider.active .slide:not(:last-child) {
+.carousel .slider.active .slide {
   padding-left: var(--padding);
   padding-right: var(--padding);
 }
-.carousel .slider.active .slide:last-of-type {
-  padding-right: 0 !important;
-}
 .carousel .slider.active .slide:first-child {
-  padding-right: var(--padding);
   padding-left: 0 !important;
 }
 .carousel .slider .slide {
