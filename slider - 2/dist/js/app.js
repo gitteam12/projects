@@ -38,7 +38,14 @@ carousels.forEach((carousel) => {
     slideShow();
 
     // stop slidesShow on mouse hover  and rerun int on mouse out 
-    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(interval)
+        window.addEventListener('keyup', function (event) { 
+            console.log(event.key)
+            if (event.key === "ArrowLeft") previous.click(); 
+            else if (event.key === "ArrowRight") next.click();
+        })
+    });
     carousel.addEventListener('mouseleave', slideShow);
 
 
