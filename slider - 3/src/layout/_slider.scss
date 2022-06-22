@@ -1,0 +1,63 @@
+@use '../config/vars' as *;
+
+.container {
+    position: relative;
+
+    .slider {
+        height: 300px;
+        width: 95%;
+        margin: auto;
+        position: relative;
+        overflow-y: hidden;
+
+        img {
+            position: absolute;
+            transition: var(--transition);
+            display: block;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        .controls {
+            position: absolute;
+            width: 100%;
+            @include flex-between;
+            z-index: 1;
+            height: 100%;
+            @include vertical-center;
+
+            button {
+                background-color: transparent;
+                font-size: 4rem;
+                color: white;
+                height: 100%;
+            }
+        }
+    }
+
+    .dots {
+        ul {
+            @include flex-center;
+            gap: 10px;
+            width: 100%;
+
+            li {
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: transparent;
+                border: 2px solid #000;
+
+                &.active {
+                    background-color: #333;
+                }
+            }
+        }
+    }
+}
