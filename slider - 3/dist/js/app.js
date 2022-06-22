@@ -1,7 +1,4 @@
 let body = document.body,
-    log = (...texts) => console.log(texts.join(" ")),
-    upper = (...texts) => texts.join(" ").toUpperCase(),
-    lower = (...texts) => texts.join(" ").toLowerCase(),
     floor = (e) => Math.floor(e),
     round = (e) => Math.round(e),
     ceil = (e) => Math.ceil(e),
@@ -20,7 +17,7 @@ let slides = querySelectorAll(".slider img"),
     next = querySelector(".nextbtn"),
     prev = querySelector(".prevbtn"),
     slidesCount = slides.length - 1,
-    currentSlide = floor(slidesCount / 2);
+    currentSlide = 1;
 for (i = 0; i <= slidesCount; i++) {
     li = createElement("li");
     ul.appendChild(li);
