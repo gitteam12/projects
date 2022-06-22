@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+:root {
+  /* ===== NAVIGATION SITTINGS ==== */
+  --header-height: 7rem;
+  /* ======= BODY PROPERTIES ====== */
+  --body-font: "Open sans", sans-serif;
+  --body-color: #0e2431;
+  --body-bg-color: #fff;
+  --body-line-height: 1.5;
+  /* =========== COLORS =========== */
+  /* Change favorite color */
+  --hue-color: 250;
+  --first-color: hsl(var(--hue-color), 69%, 61%);
+  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+  --title-color: hsl(var(--hue-color), 8%, 15%);
+  --text-color: hsl(var(--hue-color), 8%, 45%);
+  --text-color-light: hsl(var(--hue-color), 8%, 65%);
+  --body-color: hsl(var(--hue-color), 60%, 99%);
+  --input-color: hsl(var(--hue-color), 70%, 96%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+  --container-color: #fff;
+  --color-white: #ffffff;
+  --section-padding: 6rem;
+  /* ========= TRANSITION ========= */
+  --transition: all .3s ease-in-out;
+  --transition-fast: all .2s ease-in-out;
+  /* ============= FONT ============ */
+  --fz-normal: 12px;
+  --fz-small: 11px;
+  --fz-smaller: 10px;
+  /* ====== FONT MEDIA QUERY ====== */
+  /* ========= FONT WEIGHT ======== */
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semi: 600;
+  /* ==== MARGINS AND PADDINGS ==== */
+  --m-1: 0.5rem;
+  --m-2: 1rem;
+  --m-3: 1.5rem;
+  --m-4: 2rem;
+  --m-5: 2.5rem;
+  --m-6: 3rem;
+  --m-7: 3.5rem;
+  --m-8: 4rem;
+  --m-9: 4.5rem;
+  --m-10: 5rem;
+  /*========== z index ==========*/
+  --z-back: -10;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+  /* ============= GAP ============ */
+  --gap-1: 0.5rem;
+  --gap-2: 1rem;
+  --gap-3: 1.5rem;
+  --gap-4: 2rem;
+  --gap-5: 2.5rem;
+  --gap-6: 3rem;
+  --gap-7: 3.5rem;
+  --gap-8: 4rem;
+  --gap-9: 4.5rem;
+  --gap-10: 5rem;
+}
+@media only screen and (min-width: 768px) {
+  :root {
+    --fz-normal: 13px;
+    --fz-small: 12px;
+    --fz-smaller: 11px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  :root {
+    --fz-normal: 14px;
+    --fz-small: 13px;
+    --fz-smaller: 12px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  :root {
+    --fz-normal: 15px;
+    --fz-small: 14px;
+    --fz-smaller: 13px;
+  }
+}
+
+/*===== BASE =====*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+video,
+audio,
+span,
+label,
+select,
+button,
+input,
+select,
+textarea,
+a {
+  display: inline-block;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+ul, ol,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  font-size: 10px;
+  outline: none;
+}
+
+body {
+  background-color: var(--body-color);
+  line-height: var(--body-line-height);
+  font-weight: var(--fw-medium);
+  font-family: var(--body-font);
+  font-size: var(--fz-normal);
+  color: var(--text-color);
+  transition: 0.2s ease-in-out;
+}
+
+body.dark-theme {
+  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 75%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: hsl(var(--hue-color), 28%, 12%);
+  --container-color: hsl(var(--hue-color), 29%, 16%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  padding-left: var(--m-4);
+  padding-right: var(--m-4);
+  width: 900px;
+  height: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* > * {
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+h1,
+h3,
+h2,
+h4,
+h5,
+h6 {
+  text-transform: capitalize;
+  color: var(--title-color);
+  font-weight: var(--fw-semi);
+}
+
+a {
+  text-transform: capitalize;
+}
+
+:root {
+  --section-font-size: var(--m-5);
+}
+@media only screen and (min-width: 768px) {
+  :root {
+    --section-font-size: var(--m-8);
+  }
+}
+
+.section {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.section__header {
+  margin-left: auto;
+  margin-right: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: var(--m-8);
+  text-align: center;
+}
+.section__title {
+  position: relative;
+  font-size: var(--section-font-size);
+}
+.section__subtitle {
+  color: var(--first-color);
+  font-size: var(--fz-normal);
+}
+
+/* ============= BUTTONS ============ */
+.btn {
+  transition: all 0.15s ease-in;
+  background-color: transparent;
+  border: 1px solid transparent;
+  text-transform: capitalize;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.2rem;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.main-btn {
+  padding: 10px 15px;
+  color: var(--color-white);
+  background-color: var(--first-color-alt);
+}
+@media only screen and (max-width: 575px) {
+  .main-btn {
+    padding: 4.5px 7.5px;
+  }
+}
+.main-btn:hover {
+  background-color: var(--first-color);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--scroll-thumb-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.header {
+  z-index: var(--z-tooltip);
+  height: var(--header-height);
+  background-color: var(--body-color);
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.header.active {
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: var(--header-height);
+  gap: var(--m-2);
+}
+.header .nav__toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+.header .nav__toggler.active .nav__hide {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 1s, opacity 1s;
+}
+.header .nav__toggler.active .nav__show {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s;
+}
+.header .nav__theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+.header .nav__theme.active .dark-theme {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s;
+}
+.header .nav__theme.active .light-theme {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 1s, opacity 1s;
+}
+.header .nav .dark-theme,
+.header .nav .light-theme {
+  position: absolute;
+}
+.header .nav .light-theme {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s;
+}
+.header .nav__logo {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .nav__list {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+.header .nav__link {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .nav__link::after {
+  transition: var(--transition);
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--first-color);
+  border-radius: 4px;
+}
+.header .nav__link.active {
+  color: var(--first-color);
+}
+.header .nav__link.active::after {
+  width: 100%;
+}
+.header .nav__link:hover {
+  color: var(--first-color-alt);
+}
+.header .nav__item {
+  display: block;
+}
+.header .nav__item:not(:last-child) .nav__link {
+  margin-right: var(--m-5);
+}
+
+.carousel {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.carousel__inner {
+  overflow: hidden;
+}
+.carousel__slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.carousel__slide {
+  width: 100%;
+  flex: none;
+  height: 100%;
+}
+.carousel__slide img {
+  height: 100vh;
+}
+.carousel__controls button {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  position: absolute;
+  z-index: 10;
+}
+.carousel__controls button.delay {
+  pointer-events: none;
+  cursor: pointer;
+}
+.carousel__controls button.previous {
+  left: 1px;
+}
+.carousel__controls button.next {
+  right: 1px;
+}
