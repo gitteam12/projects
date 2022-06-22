@@ -5,8 +5,8 @@ let carousels = document.querySelectorAll(".carousel");
 carousels.forEach((carousel) => {
     let slides = carousel.querySelectorAll(".carousel__slide");
     let slider = carousel.querySelector(".carousel__slider");
-    let next = document.querySelector(".next");
-    let previous = document.querySelector(".previous");
+    let next = carousel.querySelector(".next");
+    let previous = carousel.querySelector(".previous");
     width = 100;
     let start = 1;
     let interval;
