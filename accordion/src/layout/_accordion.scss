@@ -1,0 +1,73 @@
+@use '../config/vars' as *;
+
+.container {
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--color-white);
+    width: 990px;
+    align-items: center;
+    border-radius: 20px;
+    gap: var(--m-10);
+    display: grid;
+    @include py(var(--m-5));
+
+    @include media(sm, "max") {
+        justify-items: center;
+        grid-template-columns: 1fr;
+        border-radius: 0;
+    }
+}
+
+.accordion__feild {
+    &>h1 {
+        text-align: center;
+        @include my(var(--m-10));
+        font-size: 30px;
+        font-weight: 900;
+    }
+}
+
+.accordion {
+    @include py(var(--m-4));
+
+    &__item {
+        overflow: hidden;
+
+        &.open {
+            .accordion__header {
+                h3 {
+                    font-weight: 600;
+                    color: var(--first-color);
+                }
+
+                i {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    &__header {
+        cursor: pointer;
+        @include flex-between();
+        padding: 10px;
+
+        h3 {
+            transition: var(--transition-fast);
+            font-weight: 400;
+        }
+
+        i {
+            font-size: var(--m-3);
+        }
+    }
+
+    &__body {
+        transition: var(--transition);
+        @include px(var(--m-2)) ;
+        height: 0;
+
+        p {
+            @include py(0 var(--m-2));
+        }
+    }
+}
